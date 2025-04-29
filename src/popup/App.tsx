@@ -124,7 +124,7 @@ const StudyLogPopup: React.FC = () => {
   return (
     <div className="studylog-popup">
       <h2>Study Log</h2>
-      <button className="original-button" onClick={fetchCurrentTab}>New Study</button>
+      <button onClick={fetchCurrentTab}>New Study Log</button>
       <ul className="entry-list">
         {entries.map(entry => (
           <li key={entry.id} className="entry-item">
@@ -132,8 +132,8 @@ const StudyLogPopup: React.FC = () => {
             <span className="entry-domain">({entry.domain})</span>
             {entry.memo && <div className="entry-memo">{entry.memo}</div>}
             <div className="entry-actions">
-              <button className="original-button" onClick={() => handleUpdate(entry.id)}>Update Progress</button>
-              <button className="original-button" onClick={() => handleDelete(entry.id)}>Delete</button>
+              <button onClick={() => handleUpdate(entry.id)}>Update Progress</button>
+              <button onClick={() => handleDelete(entry.id)}>Delete</button>
             </div>
             <div className="entry-updated">Last updated: {new Date(entry.updatedAt).toLocaleString()}</div>
           </li>
@@ -152,8 +152,8 @@ const StudyLogPopup: React.FC = () => {
           <div className="modal">
             <p>Are you sure you want to delete this record?</p>
             <div className="modal-actions">
-              <button className="original-button" onClick={confirmDelete}>Yes, Delete</button>
-              <button className="original-button" onClick={() => setDeletingId(null)}>Cancel</button>
+              <button onClick={confirmDelete}>Yes, Delete</button>
+              <button onClick={() => setDeletingId(null)}>Cancel</button>
             </div>
           </div>
         </div>
