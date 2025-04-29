@@ -11,44 +11,60 @@ StudyLog is a simple browser extension to track and manage your learning progres
 - Data is persisted in `chrome.storage.local`
 - Clean, stylish, and responsive UI
 
-## Getting Started
+## Build Instructions
 
-1. Clone this repository and install dependencies:
-   ```sh
-   npm install
-   ```
-2. Build the extension:
-   ```sh
-   npm run build
-   ```
-3. Load the `dist/` directory as an unpacked extension in Chrome or Firefox
-4. Click the toolbar icon to open the popup and start tracking your study progress
+Follow these steps to build the extension from source:
 
-## Main Features
+1. Install Node.js (recommended version: 18.x or later)
+   - Download from: https://nodejs.org/
 
-- **Create New Record**: Click "New Study Log" to save the current tab's info. You can edit the title and add a memo.
-- **Update Progress**: Click "Update Progress" to update the record's URL to the current tab
-- **Delete**: Click "Delete" to remove a record (with confirmation dialog)
-- **Data Structure Example**:
-  ```json
-  {
-    "id": "unique-id",
-    "domain": "example.com",
-    "url": "https://example.com/page2",
-    "title": "Chapter 2: Introduction to WebExtensions",
-    "memo": "Optional memo",
-    "updatedAt": 1714368000000
-  }
-  ```
+2. Install project dependencies:
+
+```bash
+npm install
+```
+
+3. Build the project:
+
+```bash
+npm run build
+```
+
+4. The build artifacts will be generated inside the `dist/` directory.
+
+5. Load the `dist/` directory as an unpacked extension in Chrome or Firefox.
+
+## Requirements
+
+- Operating System: Windows 10+, macOS 11+, or Ubuntu 20.04+
+- Node.js: v18.x or later
+- npm: v9.x or later
 
 ## Development & Testing
 
 - Built with Vite + React + TypeScript
-- Unit tests: `src/tests/storage.test.ts` (Vitest)
-  ```sh
-  npx vitest run
-  ```
-- Code formatting and linting: ESLint supported
+- Unit tests located in `src/tests/storage.test.ts` (Vitest)
+
+Run tests:
+
+```bash
+npx vitest run
+```
+
+- Code formatting and linting are supported via ESLint
+
+## Data Structure Example
+
+```json
+{
+  "id": "unique-id",
+  "domain": "example.com",
+  "url": "https://example.com/page2",
+  "title": "Chapter 2: Introduction to WebExtensions",
+  "memo": "Optional memo",
+  "updatedAt": 1714368000000
+}
+```
 
 ## Project Structure (partial)
 
@@ -64,6 +80,13 @@ vite.config.ts    ... Vite config
 
 - UI and colors can be adjusted in `src/popup/popup.css`
 - Data structure and storage logic are easy to extend
+
+## Notes
+
+- No private API is used.
+- No dynamic remote code loading.
+- The extension does not collect any personal user data.
+- All saved data remains stored locally in the user's browser.
 
 ## License
 
