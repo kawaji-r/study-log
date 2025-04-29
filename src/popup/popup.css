@@ -29,7 +29,7 @@ button {
   line-height: 1;
   text-decoration: none;
   color: #333333;
-  font-size: 18px;
+  font-size: 1.2em;
   border-radius: 5px;
   width: 200px;
   height: 40px;
@@ -37,6 +37,8 @@ button {
   position: relative;
   transition: 0.3s;
   background-color: #ffffff00;
+  word-break: break-all;
+  padding-right: 30px;
 }
 button::before, button::after {
   content: "";
