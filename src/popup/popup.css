@@ -1,0 +1,181 @@
+/* Minimal styling for StudyLog popup and modal */
+.studylog-popup {
+  min-width: 400px;
+  max-width: 520px;
+  min-height: 520px;
+  max-height: 700px;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 24px 20px 20px 20px;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
+  background: linear-gradient(135deg, #f6f8fa 0%, #e7ecf3 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(60, 80, 120, 0.12);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: box-shadow 0.2s;
+}
+h2 {
+  margin-top: 0;
+  font-size: 1.6em;
+  letter-spacing: 0.02em;
+  color: #2a3950;
+  font-weight: 700;
+  text-align: center;
+}
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  border: 1px solid #333333;
+  position: relative;
+  transition: 0.3s;
+  background-color: #ffffff00;
+}
+button::before, button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform-origin: 100% 50%;
+  height: 1px;
+  width: 11px;
+  background-color: #333;
+  border-radius: 2px;
+  will-change: transform;
+  transition: .3s;
+}
+
+button::before {
+  transform: translateY(-50%) rotate(30deg);
+}
+
+button::after {
+  transform: translateY(-50%) rotate(-30deg);
+}
+
+button:hover::before {
+  transform: translate(5px, -50%) rotate(30deg);
+}
+
+button:hover::after {
+  transform: translate(5px, -50%) rotate(-30deg);
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+}
+.entry-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(60, 80, 120, 0.07);
+  border: 1px solid #e3e8f0;
+  padding: 14px 14px 10px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: box-shadow 0.2s;
+}
+.entry-item:hover {
+  box-shadow: 0 4px 16px rgba(79, 140, 255, 0.10);
+}
+.entry-domain {
+  color: #7b8ca6;
+  font-size: 0.93em;
+  margin-left: 8px;
+}
+.entry-memo {
+  font-size: 1em;
+  color: #4f5d75;
+  margin: 4px 0 0 0;
+  background: #f3f6fa;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+.entry-actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+}
+.entry-updated {
+  font-size: 0.85em;
+  color: #b0b8c9;
+  margin-top: 2px;
+  text-align: right;
+}
+.entry-item a {
+  color: #357ae8;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08em;
+  transition: color 0.2s;
+}
+.entry-item a:hover {
+  color: #1a4fa0;
+  text-decoration: underline;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(60, 80, 120, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 24px 20px 24px;
+  min-width: 340px;
+  max-width: 96vw;
+  box-shadow: 0 8px 32px rgba(60, 80, 120, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: modalIn 0.18s cubic-bezier(.4,1.4,.6,1) 1;
+}
+@keyframes modalIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.18em;
+  color: #2a3950;
+  font-weight: 600;
+  text-align: center;
+}
+.modal input, .modal textarea {
+  width: 100%;
+  margin: 6px 0 10px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #c7d0e0;
+  font-size: 1em;
+  background: #f8fafc;
+  resize: vertical;
+  transition: border 0.2s;
+}
+.modal input:focus, .modal textarea:focus {
+  border: 1.5px solid #4f8cff;
+  outline: none;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
