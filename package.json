@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && cd dist && zip -r ../studylog-extension.zip .",
     "lint": "eslint .",
     "preview": "vite preview"
   },
